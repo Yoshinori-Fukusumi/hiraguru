@@ -6,22 +6,21 @@ require_once __DIR__ . '/common/functions.php';
 // データベースに接続
 $dbh = connect_db();
 
+// セッション開始
+session_start();
+
+$current_user = '';
+
+if (isset($_SESSION['current_user'])) {
+    $current_user = $_SESSION['current_user'];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Kaisei+Opti&family=Yuji+Boku&display=swap" rel="stylesheet">
-    <title>ひらグル</title>
-</head>
+<?php include_once __DIR__ . '/_head.php' ?>
 
 <body>
     <?php include_once __DIR__ . '/_header.php' ?>
@@ -129,9 +128,11 @@ $dbh = connect_db();
                     </div>
                 </li>
             </ul>
-            <div class="arrival__btn__wrapper">
-                <a class="arrival__btn" href="new-post.html">新規投稿</a>
-            </div>
+            <?php if (!empty($current_user)) : ?>
+                <div class="arrival__btn__wrapper">
+                    <a class="arrival__btn" href="upload.php">新規投稿</a>
+                </div>
+            <?php endif; ?>
         </section>
     </div>
     <footer class="footer">

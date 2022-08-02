@@ -434,6 +434,39 @@ li {
     color: #ffffff;
 }
 
+.right_content {
+    display: flex;
+}
+
+.login_info {
+    margin-right: 20px;
+    align-items: center;
+    display: flex;
+}
+
+.login_info p {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.header_logout_button {
+    align-items: center;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.header_login_button {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
 .home_icon {
     color: #FFFFFF;
     font-size: 30px;
@@ -634,6 +667,7 @@ input[type="password"]::placeholder {
     text-decoration: none;
 }
 
+
 /* login.php */
 .login_content {
     background-color: #DDDDDD;
@@ -666,6 +700,13 @@ input[type="password"]::placeholder {
     background: #000000;
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.errors li {
+    margin-top: 5px;
+    color: #ec008c;
+    text-align: center;
+    list-style: none;
 }
 
 /* レスポンシブ */
