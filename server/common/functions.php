@@ -134,3 +134,66 @@ function find_user_by_email($email)
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+function insert_validate($upload_file, $menu, $description, $shop)
+{
+    $errors = [];
+
+    if (empty($upload_file)) {
+        $errors[] = MSG_NO_IMAGE;
+    }
+
+    if (empty($menu)) {
+        $errors[] = MSG_NO_MENU;
+    }
+
+    if (empty($description)) {
+        $errors[] = MSG_NO_DESCRIPTION;
+    }
+
+    if (empty($shop)) {
+        $errors[] = MSG_NO_SHOP;
+    } else {
+        if (check_file_ext($upload_file)) {
+            $errors[] = MSG_NOT_ABLE_EXT;
+        }
+    }
+
+
+
+    return $errors;
+}
+
+function check_file_ext($upload_file)
+{
+    $err = false;
+
+    $file_ext = pathinfo($upload_file, PATHINFO_EXTENSION);
+    if (!in_array($file_ext, EXTENTION)) {
+        $err = true;
+    }
+
+    return $err;
+}
+
+function insert_photo($user_id, $image_name, $menu, $description, $shop, $homepage)
+{
+    $dbh = connect_db();
+
+    $sql = <<<EOM
+    INSERT INTO 
+        photos
+        (user_id ,image, menu, description, shop, homepage) 
+    VALUES 
+        (:user_id, :image, :menu, :description, :shop, :homepage);
+    EOM;
+    $stmt = $dbh->prepare($sql);
+
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':image', $image_name, PDO::PARAM_STR);
+    $stmt->bindValue(':menu', $menu, PDO::PARAM_STR);
+    $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+    $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+    $stmt->bindValue(':homepage', $homepage, PDO::PARAM_STR);
+    $stmt->execute();
+}

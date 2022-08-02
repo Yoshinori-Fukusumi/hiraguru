@@ -532,6 +532,7 @@ li {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 40px;
 }
 
 .input_text::placeholder {
