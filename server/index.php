@@ -15,6 +15,7 @@ if (isset($_SESSION['current_user'])) {
     $current_user = $_SESSION['current_user'];
 }
 
+$photos = find_photos_all()
 ?>
 
 <!DOCTYPE html>
@@ -94,39 +95,26 @@ if (isset($_SESSION['current_user'])) {
                 <h2 class="arrival__title">新着グルメ</h2>
             </div>
             <ul class="arrival__list__wrapper">
-                <li class="arrival__list">
-                    <figure class="arrival__img__wrapper">
-                        <img src="img/soba.jpg" alt="">
-                    </figure>
-                    <div class="arrival__text__body">
-                        <label class="arrival__label">メニュー名</label>
-                        <h3 class="arrival__text__top">福スペシャルそば</h3>
-                        <label class="arrival__label">概要</label>
-                        <p class="arrival__text">宇宙一美味しい蕎麦です宇宙一美味しい蕎麦です宇宙一美味しい蕎麦です宇宙一美味しい蕎麦です宇宙一美味しい蕎麦です宇宙一美味しい蕎麦です</p>
-                        <label class="arrival__label">店名</label>
-                        <p class="arrival__text arrival__shop">LuckyLive</p>
-                        <label class="arrival__label">ホームページ</label>
-                        <p class="arrival__text arrival__url">https://www.luckylive.●●●</p>
+                <?php foreach ($photos as $photo) : ?>
+                    <li class="arrival__list">
+                        <a class="arrival__img__wrapper" href="show.php">
+                            <img src="images/<?= h($photo['image']) ?>">
+                        </a>
+                        <div class="arrival__text__body">
+                            <label class="arrival__label">メニュー名</label>
+                            <h3 class="arrival__text__top"><?= h($photo['menu']) ?></h3>
+                            <label class="arrival__label">概要</label>
+                            <p class="arrival__text"><?= h($photo['description']) ?></p>
+                            <label class="arrival__label">店名</label>
+                            <p class="arrival__text arrival__shop"><?= h($photo['shop']) ?></p>
+                            <label class="arrival__label">ホームページ</label>
+                            <p class="arrival__text arrival__url"><?= h($photo['homepage']) ?></p>
+                        </div>
+                    </li>
+                    <div class="arrival__list__line">
+                        <img src="img/line.png" alt="">
                     </div>
-                </li>
-                <div class="arrival__list__line">
-                    <img src="img/line.png" alt="">
-                </div>
-                <li class="arrival__list">
-                    <figure class="arrival__img__wrapper">
-                        <img src="img/meat.jpg" alt="">
-                    </figure>
-                    <div class="arrival__text__body">
-                        <label class="arrival__label">メニュー名</label>
-                        <h3 class="arrival__text__top">福にく</h3>
-                        <label class="arrival__label">概要</label>
-                        <p class="arrival__text">福住氏公認の肉料理です福住氏公認の肉料理です福住氏公認の肉料理です福住氏公認の肉料理です福住氏公認の肉料理です福住氏公認の肉料理です</p>
-                        <label class="arrival__label">店名</label>
-                        <p class="arrival__text arrival__shop">BetterEdu</p>
-                        <label class="arrival__label">ホームページ</label>
-                        <p class="arrival__text arrival__url">https://www.BetterEdu.●●●</p>
-                    </div>
-                </li>
+                <?php endforeach; ?>
             </ul>
             <?php if (!empty($current_user)) : ?>
                 <div class="arrival__btn__wrapper">

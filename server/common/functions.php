@@ -197,3 +197,14 @@ function insert_photo($user_id, $image_name, $menu, $description, $shop, $homepa
     $stmt->bindValue(':homepage', $homepage, PDO::PARAM_STR);
     $stmt->execute();
 }
+
+function find_photos_all()
+{
+    $dbh = connect_db();
+
+    $sql = 'SELECT * FROM photos';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
