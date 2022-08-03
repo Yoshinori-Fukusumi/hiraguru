@@ -97,7 +97,7 @@ $photos = find_photos_all()
             <ul class="arrival__list__wrapper">
                 <?php foreach ($photos as $photo) : ?>
                     <li class="arrival__list">
-                        <a class="arrival__img__wrapper" href="show.php">
+                        <a href="show.php?photo_id=<?= h($photo['id']) ?>">
                             <img src="images/<?= h($photo['image']) ?>">
                         </a>
                         <div class="arrival__text__body">
