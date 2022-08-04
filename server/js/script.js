@@ -5,7 +5,7 @@
 $(function(){
 
 //inview
-$('.js-fadeUp').on('inview', function(){
+$('.js-fadeUp, .js-slide').on('inview', function(){
   $(this).addClass('is-inview');
 })
 

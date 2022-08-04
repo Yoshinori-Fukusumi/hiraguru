@@ -202,7 +202,7 @@ function find_photos_all()
 {
     $dbh = connect_db();
 
-    $sql = 'SELECT * FROM photos';
+    $sql = 'SELECT * FROM photos ORDER BY created_at DESC';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -286,6 +286,23 @@ function update_photo($id, $menu, $description, $shop, $homepage, $image_name = 
         $stmt->bindValue(':image', $image_name, PDO::PARAM_STR);
     }
 
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
+function delete_photo($id)
+{
+    $dbh = connect_db();
+
+    $sql = <<<EOM
+    DELETE 
+        FROM 
+    photos 
+        WHERE 
+    id = :id;
+    EOM;
+
+    $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 }

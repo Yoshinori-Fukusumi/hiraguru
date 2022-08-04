@@ -243,6 +243,8 @@ li {
 .arrival {
     width: 100%;
     margin-bottom: 100px;
+    overflow: hidden;
+
 }
 
 .arrival__title__wrapper {
@@ -267,6 +269,11 @@ li {
     display: flex;
     align-items: flex-start;
     margin-bottom: 80px;
+}
+
+.arrival__list__img {
+    padding-top: 20px;
+    width: 40%;
 }
 
 .arrival__list__line img {
@@ -373,6 +380,18 @@ li {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 1.6s;
+}
+
+.js-slide {
+    opacity: 0;
+    transform: translateX(400px);
+    transition: opacity .8s, transform 1.6s;
+}
+
+.js-slide.is-inview {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity .8s, transform 1.6s;
 }
 
 

@@ -96,10 +96,12 @@ $photos = find_photos_all()
             </div>
             <ul class="arrival__list__wrapper">
                 <?php foreach ($photos as $photo) : ?>
-                    <li class="arrival__list">
-                        <a href="show.php?photo_id=<?= h($photo['id']) ?>">
-                            <img src="images/<?= h($photo['image']) ?>">
-                        </a>
+                    <li class="arrival__list js-slide">
+                        <div class="arrival__list__img">
+                            <a href="show.php?photo_id=<?= h($photo['id']) ?>">
+                                <img src="images/<?= h($photo['image']) ?>">
+                            </a>
+                        </div>
                         <div class="arrival__text__body">
                             <label class="arrival__label">メニュー名</label>
                             <h3 class="arrival__text__top"><?= h($photo['menu']) ?></h3>
