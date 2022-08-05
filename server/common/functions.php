@@ -202,7 +202,17 @@ function find_photos_all()
 {
     $dbh = connect_db();
 
-    $sql = 'SELECT * FROM photos ORDER BY created_at DESC';
+    $sql = <<<EOM
+        SELECT * 
+        FROM photos 
+        ORDER BY created_at DESC; 
+    EOM;
+
+    // $sql = 'SELECT * 
+    //         FROM photos 
+    //         ORDER BY created_at DESC
+    //         WHERE created_at > DATE_SUB( NOW(),INTERVAL 500 HOUR );';
+
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 

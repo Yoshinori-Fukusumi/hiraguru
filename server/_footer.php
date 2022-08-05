@@ -1,3 +1,3 @@
-<footer class="page_footer wrapper">
-    <small class="footer-text">&copy my company</small>
-</footer>
+    <footer class="footer">
+        <p class="footer__text">&copy fukusumi.co</p>
+    </footer>

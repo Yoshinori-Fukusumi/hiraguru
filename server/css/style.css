@@ -23,7 +23,7 @@ li {
 /* ヘッダー */
 .header {
     width: 100%;
-    height: 600px;
+    height: 700px;
     position: relative;
     overflow: hidden;
     margin-bottom: 60px;
@@ -31,7 +31,7 @@ li {
 
 .header__img__wrapper {
     width: 66%;
-    height: 600px;
+    height: 700px;
     position: absolute;
     right: 0;
     overflow: hidden;
@@ -46,19 +46,49 @@ li {
 }
 
 .img1 {
-    animation: slideshow 15s infinite;
+    animation: slideshow 40s infinite;
     /* z-index: 12; */
 }
 
 .img2 {
-    animation: slideshow 15s infinite;
+    animation: slideshow 40s infinite;
     animation-delay: 5s;
     /* z-index: 11; */
 }
 
 .img3 {
-    animation: slideshow 15s infinite;
+    animation: slideshow 40s infinite;
     animation-delay: 10s;
+    /* z-index: 10; */
+}
+
+.img4 {
+    animation: slideshow 40s infinite;
+    animation-delay: 15s;
+    /* z-index: 10; */
+}
+
+.img5 {
+    animation: slideshow 40s infinite;
+    animation-delay: 20s;
+    /* z-index: 10; */
+}
+
+.img6 {
+    animation: slideshow 40s infinite;
+    animation-delay: 25s;
+    /* z-index: 10; */
+}
+
+.img7 {
+    animation: slideshow 40s infinite;
+    animation-delay: 30s;
+    /* z-index: 10; */
+}
+
+.img8 {
+    animation: slideshow 40s infinite;
+    animation-delay: 35s;
     /* z-index: 10; */
 }
 
@@ -69,18 +99,23 @@ li {
         transform: scale(1);
     }
 
-    15% {
+    6% {
         opacity: 1;
     }
 
-    35% {
+    12% {
         opacity: 1;
-    }
-
-    45% {
-        opacity: 0;
         transform: scale(1.1);
     }
+
+    18% {
+        opacity: 0;
+    }
+
+    /* 45% {
+        opacity: 0;
+        transform: scale(1.1);
+    } */
 
     100% {
         opacity: 0;
@@ -92,7 +127,7 @@ li {
     top: 0;
     right: 53%;
     width: 200px;
-    height: 700px;
+    height: 800px;
     clip-path: polygon(0 0, 0 100%, 100% 0);
     background: rgb(255, 255, 255);
 }
@@ -243,6 +278,7 @@ li {
 .arrival {
     width: 100%;
     margin-bottom: 100px;
+    padding-bottom: 20px;
     overflow: hidden;
 
 }
@@ -297,6 +333,14 @@ li {
     padding-left: 30px;
 }
 
+.arrival__text__body a p {
+    color: #000;
+}
+
+.arrival__text__body a p:hover {
+    color: rgb(255, 104, 104);
+}
+
 .arrival__label {
     font-size: 24px;
     background: linear-gradient(transparent 75%, rgb(255, 245, 198) 75%);
@@ -339,15 +383,29 @@ li {
 /* フッター */
 .footer {
     width: 100%;
-    height: 100px;
+    height: 60px;
     text-align: center;
     background-image: url(../img/bg2.jpg);
-    padding: 36px 0;
+    padding: 12px 0;
+    position: fixed;
+    bottom: 0;
+
+    /* bottom: 0; */
+}
+
+.footer__home {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    background-image: url(../img/bg2.jpg);
+    padding: 12px 0;
+
+    /* bottom: 0; */
 }
 
 .footer__text {
     font-family: 'Yuji Boku', serif;
-    font-size: 30px;
+    font-size: 24px;
     color: rgb(0, 0, 0);
 }
 
@@ -355,13 +413,13 @@ li {
 .js-fadeUp {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity .8s, transform .8s;
+    transition: opacity .8s, transform 1.2s;
 }
 
 .js-fadeUp.is-inview {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: .6s;
+    /* transition-delay: .6s; */
 }
 
 .js-fadeUp.food1.is-inview {
@@ -441,16 +499,31 @@ li {
 }
 
 .page_header {
-    background-color: #000000;
+    /* background-color: #000000; */
+    background-image: url(../img/bg2.jpg);
     display: flex;
-    height: 80px;
+    height: 60px;
     align-items: center;
     justify-content: space-between;
 }
 
+.page_header_home {
+    /* background-color: #000000; */
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 9999;
+    right: 0;
+    padding: 0;
+}
+
 .logo {
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
+    font-family: 'Yuji Boku', serif;
+
 }
 
 .right_content {
@@ -458,7 +531,7 @@ li {
 }
 
 .login_info {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     align-items: center;
     display: flex;
 }
@@ -466,25 +539,45 @@ li {
 .login_info p {
     margin-right: 10px;
     font-size: 20px;
+    font-weight: bold;
     color: #ffffff;
 }
 
 .header_logout_button {
     align-items: center;
     font-size: 20px;
-    color: #ffffff;
+    font-weight: bold;
+    color: #000000;
     text-decoration: none;
     margin-right: 10px;
+    background: rgb(255, 171, 234);
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+.header_logout_button:hover {
+    color: #fff;
+    background: rgb(255, 0, 191);
 }
 
 .header_login_button {
     display: flex;
     align-items: center;
     font-size: 20px;
-    color: #ffffff;
+    font-weight: bold;
+    color: #000000;
     text-decoration: none;
     margin-right: 10px;
+    background: rgb(169, 252, 255);
+    border-radius: 30px;
+    padding: 0 10px;
 }
+
+.header_login_button:hover {
+    color: #fff;
+    background: rgb(0, 140, 255);
+}
+
 
 .home_icon {
     color: #FFFFFF;
@@ -508,6 +601,24 @@ li {
 }
 
 /* upload.php */
+.upload_content {
+    position: relative;
+}
+
+.post__samurai {
+    width: 340px;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+.home__samurai {
+    width: 340px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
 .upload_content_form {
     width: 50%;
     margin: 6vh auto 0;
@@ -521,19 +632,25 @@ li {
     align-items: center;
     height: 350px;
     background-color: #CCCCCC;
+    background-image: url(../img/bg5.jpg);
+    background-size: cover;
+    background-position: right;
     border-radius: 40px;
     color: #ffffff;
     margin-bottom: 20px;
+    border: 1px solid rgb(186, 186, 186);
 }
 
 .plus_icon {
     display: inline-block;
     font-size: 50px;
+    color: #000;
 }
 
 .upload_text {
     font-size: 30px;
     font-weight: bold;
+    color: #000;
 }
 
 .input_file {
@@ -556,18 +673,25 @@ li {
 }
 
 .input_text::placeholder {
-    color: #E6E6E6;
+    color: #969696db;
 }
 
 .upload_submit {
     display: block;
-    margin-top: 10px;
+    margin-top: 24px;
     border-radius: 18px;
     font-size: 18px;
-    padding: 2px 30px;
-    background: #F15A24;
+    padding: 8px 30px;
+    background: #b33000;
     color: #ffffff;
+    border: 3px solid #ffffff;
     margin-left: auto;
+}
+
+.upload_submit:hover {
+    background: #ffffff;
+    color: #b33000;
+    border: 3px solid #b33000;
 }
 
 /* show.php */
@@ -577,7 +701,7 @@ li {
 }
 
 .show__content__title {
-    border-bottom: 1px solid #000;
+    background: linear-gradient(transparent 75%, rgb(255, 245, 198) 75%);
     font-size: 20px;
 }
 
@@ -622,9 +746,16 @@ li {
     font-size: 18px;
     border-radius: 18px;
     padding: 5px 30px;
-    background: #CCCCCC;
+    background: #000000;
     margin-left: 10px;
     color: #FFFFFF;
+    border: 4px solid rgb(255, 255, 255);
+}
+
+.delete_button:hover {
+    background: #ffffff;
+    color: #000000;
+    border: 4px solid #000;
 }
 
 
@@ -639,16 +770,26 @@ li {
 
 /* signup.php */
 .signup_content {
-    background-color: #DDDDDD;
+    /* background-color: #dace95; */
+    background-image: url(../img/bg3.jpg);
     border-radius: 10px;
     width: 500px;
-    height: 450px;
+    /* height: 450px; */
     margin: 50px auto;
     padding: 50px;
+    position: relative;
+}
+
+.resister__samurai {
+    position: absolute;
+    width: 340px;
+    left: -70%;
+    top: 34%;
 }
 
 .signup_title {
     text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 .email_label,
@@ -656,6 +797,7 @@ li {
 .password_label {
     display: block;
     margin: 10px 0px;
+    color: rgb(255, 255, 255);
 }
 
 input[type="email"],
@@ -683,7 +825,7 @@ input[type="password"]::placeholder {
 
 .signup_button,
 .login_button {
-    background: #239bed;
+    background: #ac6d00;
     padding: 15px 0;
     width: 48%;
     color: #FFFFFF;
@@ -692,35 +834,50 @@ input[type="password"]::placeholder {
     border-radius: 30px;
 }
 
+.signup_button:hover,
+.login_button:hover {
+    background: #ffffff;
+    color: #ac6d00;
+}
+
 .login_page_button,
 .signup_page_button {
     text-align: center;
     padding: 15px 0;
     width: 48%;
-    background: #000000;
+    background: #717171;
     color: #FFFFFF;
     border-radius: 30px;
     text-decoration: none;
 }
 
+.login_page_button:hover,
+.signup_page_button:hover {
+    background: #ffffff;
+    color: #717171;
+}
+
 
 /* login.php */
 .login_content {
-    background-color: #DDDDDD;
+    /* background-color: #dace95; */
+    background-image: url(../img/bg3.jpg);
     border-radius: 10px;
     width: 500px;
-    height: 400px;
+    /* height: 400px; */
     margin: 50px auto;
     padding: 50px;
+    position: relative;
 }
 
 .login_title {
     text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 .login_button {
     border-radius: 30px;
-    background: #239bed;
+    background: #ac6d00;
     padding: 15px 0;
     width: 48%;
     color: #FFFFFF;
@@ -733,7 +890,7 @@ input[type="password"]::placeholder {
     text-align: center;
     padding: 15px 0;
     width: 48%;
-    background: #000000;
+    background: #717171;
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -743,6 +900,13 @@ input[type="password"]::placeholder {
     color: #ec008c;
     text-align: center;
     list-style: none;
+}
+
+.login__samurai {
+    width: 320px;
+    position: absolute;
+    right: -70%;
+    top: 40%;
 }
 
 /* レスポンシブ */

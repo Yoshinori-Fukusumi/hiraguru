@@ -24,13 +24,31 @@ $photos = find_photos_all()
 <?php include_once __DIR__ . '/_head.php' ?>
 
 <body>
-    <?php include_once __DIR__ . '/_header.php' ?>
+    <header class="page_header_home wrapper">
+        <div class="right_content">
+            <div class="login_info">
+                <?php if (!empty($current_user)) : ?>
+                    <p>
+                        <?= $current_user['name'] ?>さん
+                    </p>
+                    <a class="header_logout_button" href="logout.php" class="nav-link">ログアウト</a>
+                <?php else : ?>
+                    <a class="header_login_button" href="login.php" class="nav-link">ログイン</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </header>
     <!-- ヘッダー -->
-    <header class="header">
+    <div class="header">
         <div class="header__img__wrapper">
             <img class="img1" src="img/top1.jpg" alt="">
             <img class="img2" src="img/top2.jpg" alt="">
             <img class="img3" src="img/top3.jpg" alt="">
+            <img class="img4" src="img/komada1.jpg" alt="">
+            <img class="img5" src="img/top4.jpg" alt="">
+            <img class="img6" src="img/top5.jpg" alt="">
+            <img class="img7" src="img/top6.jpg" alt="">
+            <img class="img8" src="img/komada2.png" alt="">
         </div>
         <!-- /.header__img__wrapper -->
         <div class="header__text__body">
@@ -39,7 +57,7 @@ $photos = find_photos_all()
         </div>
         <div class="header__triangle"></div>
         <a class="header__new__btn" href="#arrival">新着グルメを見る</a>
-    </header>
+    </div>
     <!-- インナー -->
     <div class="inner">
         <!-- アバウト -->
@@ -105,12 +123,14 @@ $photos = find_photos_all()
                         <div class="arrival__text__body">
                             <label class="arrival__label">メニュー名</label>
                             <h3 class="arrival__text__top"><?= h($photo['menu']) ?></h3>
-                            <label class="arrival__label">概要</label>
+                            <label class="arrival__label">詳細</label>
                             <p class="arrival__text"><?= h($photo['description']) ?></p>
                             <label class="arrival__label">店名</label>
                             <p class="arrival__text arrival__shop"><?= h($photo['shop']) ?></p>
                             <label class="arrival__label">ホームページ</label>
-                            <p class="arrival__text arrival__url"><?= h($photo['homepage']) ?></p>
+                            <a href="<?= h($photo['homepage']) ?>">
+                                <p class="arrival__text arrival__url"><?= h($photo['homepage']) ?></p>
+                            </a>
                         </div>
                     </li>
                     <div class="arrival__list__line">
@@ -125,8 +145,8 @@ $photos = find_photos_all()
             <?php endif; ?>
         </section>
     </div>
-    <footer class="footer">
-        <p class="footer__text">ひらグル</p>
+    <footer class="footer__home">
+        <p class="footer__text">&copy fukusumi.co</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/jquery.inview.min.js"></script>

@@ -1,7 +1,7 @@
 <header class="page_header wrapper">
     <h1>
         <a class="logo" href="index.php">
-            PHOTO LIST
+            ひらグル
         </a>
     </h1>
 
@@ -17,9 +17,9 @@
                 <a class="header_login_button" href="login.php" class="nav-link">ログイン</a>
             <?php endif; ?>
 
-            <a class="home_icon" href="index.php">
+            <!-- <a class="home_icon" href="index.php">
                 <i class="fa-solid fa-house"></i>
-            </a>
+            </a> -->
 
         </div>
     </div>

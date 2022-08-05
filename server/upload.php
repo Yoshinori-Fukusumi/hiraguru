@@ -89,6 +89,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input class="input_text" type="text" name="homepage" id="" placeholder="ホームページ名を入力してください">
             <input class="upload_submit" type="submit" value="追加">
         </form>
+        <figure class="home__samurai">
+            <img src="img/home_samurai.jpg" alt="">
+        </figure>
+        <figure class="post__samurai">
+            <img src="img/post_samurai.png" alt="">
+        </figure>
     </section>
 
 

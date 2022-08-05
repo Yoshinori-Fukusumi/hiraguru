@@ -57,6 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="login.php" class="login_page_button">ログインはこちら</a>
             </div>
         </form>
+        <figure class="resister__samurai">
+            <img src="img/resister_samurai.png" alt="">
+        </figure>
+
     </section>
 
     <?php include_once __DIR__ . '/_footer.php' ?>

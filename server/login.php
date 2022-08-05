@@ -67,6 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="signup.php" class="signup_page_button">新規ユーザー登録</a>
             </div>
         </form>
+        <figure class="login__samurai">
+            <img src="img/login_samurai.png" alt="">
+        </figure>
     </section>
 
     <?php include_once __DIR__ . '/_footer.php' ?>
