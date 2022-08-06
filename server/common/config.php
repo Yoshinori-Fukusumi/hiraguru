@@ -17,3 +17,5 @@ define('MSG_NAME_REQUIRED', 'ユーザー名が未入力です');
 define('MSG_PASSWORD_REQUIRED', 'パスワードが未入力です');
 define('MSG_EMAIL_DUPLICATE', 'そのメールアドレスは既に会員登録されています');
 define('MSG_EMAIL_PASSWORD_NOT_MATCH', 'メールアドレスかパスワードが間違っています');
+
+define('MAX','5'); // 1ページの記事の表示数

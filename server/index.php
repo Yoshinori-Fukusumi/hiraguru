@@ -15,7 +15,34 @@ if (isset($_SESSION['current_user'])) {
     $current_user = $_SESSION['current_user'];
 }
 
-$photos = find_photos_all()
+$photos = find_photos_all();
+
+$books_num = count($photos);
+
+$max_page = ceil($books_num / MAX); // トータルページ数※ceilは小数点を切り捨てる関数
+
+if (!isset($_GET['page_id'])) { // $_GET['page_id'] はURLに渡された現在のページ数
+    $now = 1; // 設定されてない場合は1ページ目にする
+} else {
+    $now = $_GET['page_id'];
+}
+
+$start_no = ($now - 1) * MAX; // 配列の何番目から取得すればよいか
+
+// array_sliceは、配列の何番目($start_no)から何番目(MAX)まで切り取る関数
+$disp_data = array_slice($photos, $start_no, MAX, true);
+
+// foreach ($disp_data as $val) { // データ表示
+//     echo $val['menu'] . '　' . $val['description'] . '<br />';
+// }
+
+// for ($i = 1; $i <= $max_page; $i++) { // 最大ページ数分リンクを作成
+//     if ($i == $now) { // 現在表示中のページ数の場合はリンクを貼らない
+//         echo $now . '　';
+//     } else {
+//         echo '<a href=/index.php?page_id=' . $i . '>' . $i . '</a>' . '　';
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +140,45 @@ $photos = find_photos_all()
                 <h2 class="arrival__title">新着グルメ</h2>
             </div>
             <ul class="arrival__list__wrapper">
-                <?php foreach ($photos as $photo) : ?>
+
+
+                <?php foreach ($disp_data as $val) : ?>
+                    <li class="arrival__list js-slide">
+                        <div class="arrival__list__img">
+                            <a href="show.php?photo_id=<?= h($val['id']) ?>">
+                                <img src="images/<?= h($val['image']) ?>">
+                            </a>
+                        </div>
+                        <div class="arrival__text__body">
+                            <label class="arrival__label">メニュー名</label>
+                            <h3 class="arrival__text__top"><?= h($val['menu']) ?></h3>
+                            <label class="arrival__label">詳細</label>
+                            <p class="arrival__text"><?= h($val['description']) ?></p>
+                            <label class="arrival__label">店名</label>
+                            <p class="arrival__text arrival__shop"><?= h($val['shop']) ?></p>
+                            <label class="arrival__label">ホームページ</label>
+                            <a href="<?= h($val['homepage']) ?>">
+                                <p class="arrival__text arrival__url"><?= h($val['homepage']) ?></p>
+                            </a>
+                        </div>
+                    </li>
+                    <div class="arrival__list__line">
+                        <img src="img/line.png" alt="">
+                    </div>
+                <?php endforeach; ?>
+                <p class="pager">
+                    <?php
+                    for ($i = 1; $i <= $max_page; $i++) { // 最大ページ数分リンクを作成
+                        // if ($i == $now) { // 現在表示中のページ数の場合はリンクを貼らない
+                        //     echo $now . '　';
+                        // } else {
+                        echo '<a href=/index.php?page_id=' . $i . '#arrival>' . $i . '</a>' . '　';
+                    }
+                    // }
+                    ?>
+                </p>
+
+                <!-- <?php foreach ($photos as $photo) : ?>
                     <li class="arrival__list js-slide">
                         <div class="arrival__list__img">
                             <a href="show.php?photo_id=<?= h($photo['id']) ?>">
@@ -136,7 +201,7 @@ $photos = find_photos_all()
                     <div class="arrival__list__line">
                         <img src="img/line.png" alt="">
                     </div>
-                <?php endforeach; ?>
+                <?php endforeach; ?> -->
             </ul>
             <?php if (!empty($current_user)) : ?>
                 <div class="arrival__btn__wrapper">

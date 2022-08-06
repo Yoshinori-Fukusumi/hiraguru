@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-html {
+/* html {
     scroll-behavior: smooth;
-}
+} */
 
 body {
     font-family: 'Hina Mincho', serif;
@@ -312,9 +312,19 @@ li {
     width: 40%;
 }
 
+.arrival__list__img img {
+    height: 360px;
+    object-fit: cover;
+}
+
+
 .arrival__list__line img {
     margin-bottom: 80px;
 }
+
+/* .arrival__list__line img:last-child {
+    margin-bottom: 20px;
+} */
 
 .arrival__img__wrapper {
     width: 30%;
@@ -379,6 +389,34 @@ li {
     border: 5px solid rgb(0, 98, 255);
     color: rgb(0, 98, 255);
 }
+
+.pager {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.pager a {
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 30px;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+
+.pager a:hover {
+    border: 3px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+
+
+}
+
 
 /* フッター */
 .footer {
